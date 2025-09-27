@@ -2,13 +2,43 @@
   command = "npm run build"
   publish = "dist"
 
-# Handle client-side routing for SPA
-# Only redirect URLs that don't have file extensions
+# Serve assets normally (don't redirect)
+[[redirects]]
+  from = "/assets/*"
+  to = "/assets/:splat"
+  status = 200
+
+# Serve other static files normally
+[[redirects]]
+  from = "/*.js"
+  to = "/:splat.js"
+  status = 200
+
+[[redirects]]
+  from = "/*.css"
+  to = "/:splat.css"
+  status = 200
+
+[[redirects]]
+  from = "/*.png"
+  to = "/:splat.png"
+  status = 200
+
+[[redirects]]
+  from = "/*.jpg"
+  to = "/:splat.jpg"
+  status = 200
+
+[[redirects]]
+  from = "/*.ico"
+  to = "/:splat.ico"
+  status = 200
+
+# Handle client-side routing for SPA (for paths without file extensions)
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
-  force = false
 
 # Set security headers
 [[headers]]
