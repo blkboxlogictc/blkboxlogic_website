@@ -1,0 +1,293 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+    
+    --card: 220 13% 13%;
+    --card-foreground: 0 0% 98%;
+    
+    --popover: 0 0% 0%;
+    --popover-foreground: 0 0% 98%;
+    
+    --primary: 195 100% 50%;
+    --primary-foreground: 0 0% 0%;
+    
+    --secondary: 220 8% 7%;
+    --secondary-foreground: 0 0% 98%;
+    
+    --muted: 220 13% 13%;
+    --muted-foreground: 220 8% 70%;
+    
+    --accent: 195 100% 50%;
+    --accent-foreground: 0 0% 0%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 220 8% 20%;
+    --input: 220 8% 20%;
+    --ring: 195 100% 50%;
+    
+    --chart-1: 195 100% 50%;
+    --chart-2: 134 100% 50%;
+    --chart-3: 252 100% 60%;
+    --chart-4: 24 100% 50%;
+    --chart-5: 300 100% 60%;
+    
+    --radius: 0.5rem;
+  }
+  
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  
+  .hero-gradient {
+    background: linear-gradient(135deg, hsl(220 8% 7%) 0%, hsl(0 0% 0%) 100%);
+  }
+  
+  .glow {
+    box-shadow: 0 0 15px rgba(0, 180, 255, 0.5);
+  }
+  
+  .shadow-glow {
+    box-shadow: 0 0 12px rgba(0, 180, 255, 0.7);
+  }
+  
+  .glow-text {
+    text-shadow: 0 0 10px rgba(0, 180, 255, 0.7);
+  }
+
+  .card-hover {
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 180, 255, 0.2);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: hsl(220 8% 7%);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(195 100% 50%);
+  }
+}
+
+@layer components {
+  .container {
+    @apply px-4 mx-auto;
+  }
+  
+  /* Mobile-first responsive design utilities */
+  .text-responsive {
+    @apply text-sm sm:text-base md:text-lg lg:text-xl;
+  }
+  
+  .heading-responsive {
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl;
+  }
+  
+  .card-padding {
+    @apply p-4 md:p-6 lg:p-8;
+  }
+  
+  .section-padding {
+    @apply py-8 md:py-12 lg:py-16 xl:py-20;
+  }
+  
+  .container-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* Enhanced mobile touch targets */
+  .touch-target {
+    @apply min-h-[44px] min-w-[44px] flex items-center justify-center;
+  }
+  
+  /* Mobile-optimized text truncation */
+  .line-clamp-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  /* Mobile-optimized button styles */
+  .btn-mobile {
+    @apply w-full sm:w-auto px-6 py-3 text-sm font-medium rounded-md;
+  }
+  
+  /* Custom rotation animations for 3D cube visualization */
+  .animate-rotate-12 {
+    animation: rotate-12 8s linear infinite;
+  }
+  
+  .animate-rotate-minus-12 {
+    animation: rotate-minus-12 12s linear infinite;
+  }
+  
+  .animate-rotate-3 {
+    animation: rotate-3 15s linear infinite;
+  }
+  
+  .animate-rotate-center {
+    animation: rotate-center 20s linear infinite;
+  }
+  
+  .animate-pulse-rotate-center {
+    animation: pulse-rotate-center 4s ease-in-out infinite;
+  }
+  
+  @keyframes rotate-12 {
+    from {
+      transform: rotate(12deg);
+    }
+    to {
+      transform: rotate(372deg);
+    }
+  }
+  
+  @keyframes rotate-minus-12 {
+    from {
+      transform: rotate(-12deg);
+    }
+    to {
+      transform: rotate(-372deg);
+    }
+  }
+  
+  @keyframes rotate-3 {
+    from {
+      transform: rotate(3deg);
+    }
+    to {
+      transform: rotate(363deg);
+    }
+  }
+  
+  @keyframes rotate-center {
+    from {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+      transform: translate(-50%, -50%) rotate(-360deg);
+    }
+  }
+  
+  @keyframes pulse-rotate-center {
+    0%, 100% {
+      transform: translate(-50%, -50%) rotate(0deg);
+      opacity: 1;
+    }
+    50% {
+      transform: translate(-50%, -50%) rotate(180deg);
+      opacity: 0.5;
+    }
+  }
+}
+
+/* Mobile-specific optimizations */
+@media (max-width: 768px) {
+  /* Optimize touch interactions */
+  button, a, [role="button"] {
+    touch-action: manipulation;
+  }
+  
+  /* Prevent zoom on input focus */
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+  
+  /* Optimize scrolling */
+  body {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Mobile hero section adjustments */
+  .hero-gradient {
+    background-attachment: scroll; /* Better performance on mobile */
+  }
+}
+
+/* Tablet optimizations */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .container {
+    @apply px-6;
+  }
+}
+
+/* Desktop optimizations */
+@media (min-width: 1024px) {
+  .container {
+    @apply px-8;
+  }
+}
+
+/* High-DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .glow-text {
+    text-shadow: 0 0 5px rgba(0, 180, 255, 0.7);
+  }
+}
+
+/* Dark mode optimizations for better mobile readability */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Enhanced contrast for mobile */
+    --muted: 220 13% 15%;
+    --muted-foreground: 220 8% 75%;
+  }
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .animate-rotate-12,
+  .animate-rotate-minus-12,
+  .animate-rotate-3,
+  .animate-rotate-center,
+  .animate-pulse-rotate-center {
+    animation: none;
+  }
+  
+  .card-hover {
+    transition: none;
+  }
+}
