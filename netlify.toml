@@ -3,10 +3,12 @@
   publish = "dist"
 
 # Handle client-side routing for SPA
+# Only redirect URLs that don't have file extensions
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+  force = false
 
 # Set security headers
 [[headers]]
